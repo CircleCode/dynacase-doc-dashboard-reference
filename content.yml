@@ -1,0 +1,12 @@
+book:
+    title: "Dynacase Dashboard 1.0 reference manual"
+    edition: "1"
+    chapters: 
+        - number:   "1"
+          content:  "introduction.md"
+        - number:   "2"
+          content:  "acl-access.md" 
+        - number:   "3"
+          content:  "param-init.md" 
+        - number:   "4"
+          content:  "widget-search.md" 
