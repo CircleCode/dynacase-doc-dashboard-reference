@@ -1,6 +1,7 @@
 book:
     title: "Guide d'intégration"
     module: "Dashboard"
+    githubsrc: "git@github.com:Anakeen/dynacase-doc-dashboard-reference.git"
     version: "1.0"
     edition: "1"
     chapters: 
