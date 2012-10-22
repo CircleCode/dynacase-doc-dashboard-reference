@@ -137,8 +137,8 @@ L'action de consultation doit fournir un retour en JSON semblable à celui ci-de
 
 	* assets : les fichiers js et css qui seront intégrés dans la page :
 
-		* js : string ou array de string contenant les url des fichiers JS à intégrer, ceux-ci sont intégrés en série,
-		* css : string ou array de string contenant les url des fichiers css à intégrer
+		* js : string ou array de string contenant les url des fichiers JS à intégrer, vous pouvez utiliser la commande $action->parent->getJSLink("<monJS>") pour avoir l'URI tel que dynacase la présente (similaire à celle produite par addJSRef),
+		* css : string ou array de string contenant les url des fichiers css à intégrer, vous pouvez utiliser la commande $action->parent->getCSSLink("<monJS>") pour avoir l'URI tel que dynacase la présente (similaire à celle produite par addCSSRef),
 
 	* html : fragement html intégré dans la page web
 
