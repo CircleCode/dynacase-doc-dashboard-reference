@@ -1,6 +1,6 @@
-# Widget de recherche
+# Widget de recherche {#dashboard-ref:9951d621-0c77-4324-8863-078524fa1a07}
 
-## Paramétrage du widget
+## Paramétrage du widget {#dashboard-ref:468a38f6-9339-4d90-8bf6-4efb3767bc02}
 
 Le dashboard est fourni par défaut avec un widget de recherche. Celui-ci permet de présenter une collection de documents (recherche ou dossier) dans le dashboard.
 
@@ -38,7 +38,7 @@ En consultation, vous devez fournir au moins un collectionId ou un fetchApp.
 
 FetchApp et fetchAction permettent de changer l'action par défaut qui est appelée pour compléter le widget.
 
-## Paramétrage avancé du widget
+## Paramétrage avancé du widget {#dashboard-ref:80428cf0-3590-4ecb-900f-0a0233818ac2}
 
 Si vous souhaitez créer votre propre application/action de recherche, vous pouvez vous inspirer de l'action widget_search_content_json dans l'application DASHBOARD_UI, qui a la forme suivante :
 
@@ -77,14 +77,14 @@ Si vous souhaitez créer votre propre application/action de recherche, vous pouv
 
 Cette action appelle l'action par défaut pour compléter le widget et retourne le contenu en JSON. Il est à noter que vous pouvez passer en deuxième paramètre à **widget_search_content** un objet **SearchDoc** il sera alors utilisé en lieu et place de la collection définie par collectionId.
 
-## Création d'un nouveau widget
+## Création d'un nouveau widget {#dashboard-ref:c611182a-1845-4bec-8381-506801f8a780}
 
 Pour créer un nouveau type de widget, il faut définir une ou des actions fournissant deux types d'éléments :
 
 * pour la consultation : des assets (js, css) et du HTML à intégrer ,
 * pour le paramétrage : une page HTML qui présente et enregistre les paramètres de l'action.
 
-### Exemple simple d'action de consultation :
+### Exemple simple d'action de consultation : {#dashboard-ref:aff254d6-517d-4d3d-bc27-3a34306c12ed}
 
     [php]
     <?php
@@ -176,7 +176,7 @@ Vous avez à votre disposition une classe permettant de consulter et enregistrer
     /* save the conf */
     $currentConf = $dashboardManager->setWidgetConf($dashboardUUID, $widgetUUID, $conf)
 
-### Exemple simple d'action de paramétrage : 
+### Exemple simple d'action de paramétrage :  {#dashboard-ref:cea30d52-6660-45de-8a61-5875f537a65f}
 
     [php]
     <?php
@@ -221,7 +221,7 @@ widgetUUID
 
 et elle doit en fin de paramétrage renvoyer vers l'action *RELOAD_WIDGET* de l'application *DASHBOARD_UI* avec comme paramètres le *dashboardUUID* et le *widgetUUID* (attention : ceux-ci doivent être fournis sous la forme d'une string url_encodée terminant par un *&*).
 
-### Divers
+### Divers {#dashboard-ref:28b0cede-9a6b-4874-b3d7-0e4c00f266ef}
 
 Recharger un widget : vous pouvez recharger un widget en utilisant l'api du widget et en faisant un appel de ce genre :
 

@@ -1,4 +1,4 @@
-# Dynacase Dashboard
+# Dynacase Dashboard {#dashboard-ref:e6411049-f184-47d4-ae4d-30ba22bce5ef}
 
 Le Dashboard est une application de dynacase permettant de mettre en place et gérer un dashboard.
 
