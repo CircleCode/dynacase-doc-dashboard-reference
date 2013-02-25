@@ -13,7 +13,7 @@ Pour le mettre à disposition et le paramétrer vous devez :
         * comme application : **DASHBOARD_UI**
         * comme action : **WIDGET_SEARCH_CONSULT**
         * vous pouvez de plus indiquer dans les paramétres par défaut :
-        
+            
             * *collectionId* : avec l'id ou le nom logique d'une collection (c'est la collection par défaut du widget),
             * *fetchApp* : le nom d'une application de recherche,
             * *fetchAction* : le nom d'une action de recherche,
@@ -22,17 +22,17 @@ Pour le mettre à disposition et le paramétrer vous devez :
             * *title* : le titre du widget
             
     * pour le paramétrage : 
-    
+        
         * comme application : **DASHBOARD_UI**
         * comme action : **WIDGET_SEARCH_PARAM**
         
         * vous pouvez de plus indiquer dans les paramètres par défaut :
-        
+            
             * *baseCollectionSearch* : un id ou nom logique de collection par défaut dans lequel seront recherchées les collections utilisables comme *collectionId* (par défaut toutes les collections, recherche et répertoire visibles, par l'utilisateur sont affichés),
             * *canModifyCollection* : TRUE ou FALSE si à FALSE la collection par défaut ne pourra pas être modifiée (TRUE par défaut),
             * *canModifySlice* : TRUE ou FALSE si à FALSE le slice par défaut ne pourra pas être modifié.
 
-Si vous voulez créer un widget non paramétrable ne remplissez pas la partie paramétrage, il serait de plus dommage de faire remplir l'action de paramétrage avec les deux canModify à FALSE car cela ferait une IHM avec juste un bouton de validation,
+Si vous voulez créer un widget non paramétrable ne remplissez pas la partie paramétrage, il serait de plus dommage de faire remplir l'action de paramétrage avec les deux canModify à FALSE car cela ferait une IHM avec juste un bouton de validation.
 
 En consultation, vous devez fournir au moins un collectionId ou un fetchApp.
 
@@ -70,7 +70,7 @@ Si vous souhaitez créer votre propre application/action de recherche, vous pouv
         
         $action->lay->template = json_encode($return);
         $action->lay->noparse = true;
-
+        
         
         header('Content-type: application/json');
     }
@@ -82,7 +82,6 @@ Cette action appelle l'action par défaut pour compléter le widget et retourne 
 Pour créer un nouveau type de widget, il faut définir une ou des actions fournissant deux types d'éléments :
 
 * pour la consultation : des assets (js, css) et du HTML à intégrer ,
-
 * pour le paramétrage : une page HTML qui présente et enregistre les paramètres de l'action.
 
 ### Exemple simple d'action de consultation :
@@ -122,7 +121,7 @@ Pour créer un nouveau type de widget, il faut définir une ou des actions fourn
         $action->lay->template = json_encode($return);
         $action->lay->noparse = true;
         header('Content-type: application/json');
-
+        
     }
 
 En entrée de l'action de consultation, l'application DASHBOARD_UI envoie les éléments suivants :
@@ -149,7 +148,7 @@ data
     
     assets
     :   les fichiers js et css qui seront intégrés dans la page :
-    
+        
         js
         :   string ou array de string contenant les url des fichiers JS à intégrer, ceux-ci sont intégrés en série.  
             Vous pouvez utiliser la commande $action->parent->getJSLink("<monJS>") pour avoir l'URI tel que dynacase la présente (similaire à celle produite par addJSRef)
@@ -202,7 +201,7 @@ Vous avez à votre disposition une classe permettant de consulter et enregistrer
         } else {
             $dashboardManager = new dui\DashboardManager();
             $currentConf = $dashboardManager->getWidgetConf($dashboardUUID, $widgetUUID);
-
+            
             $action->lay->set("message", $currentConf["message"]);
             $action->lay->set("color", $currentConf["color"]);
             $action->lay->set("dashboardUUID", $dashboardUUID);
