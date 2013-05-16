@@ -1,4 +1,4 @@
-# Paramétrage initial
+# Paramétrage initial {#dashboard-ref:7ac54e01-5120-45e1-b640-686a44bdc741}
 
 Le dashboard est paramétré au moyen de documents dynacase. Il se base sur les famille suivantes :
 

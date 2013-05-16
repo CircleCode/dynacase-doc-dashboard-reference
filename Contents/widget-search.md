@@ -1,6 +1,6 @@
-# Widget de recherche
+# Widget de recherche {#dashboard-ref:9951d621-0c77-4324-8863-078524fa1a07}
 
-## Paramétrage du widget
+## Paramétrage du widget {#dashboard-ref:468a38f6-9339-4d90-8bf6-4efb3767bc02}
 
 Le dashboard est fourni par défaut avec un widget de recherche. Celui-ci permet de présenter une collection de documents (recherche ou dossier) dans le dashboard.
 
@@ -13,7 +13,7 @@ Pour le mettre à disposition et le paramétrer vous devez :
         * comme application : **DASHBOARD_UI**
         * comme action : **WIDGET_SEARCH_CONSULT**
         * vous pouvez de plus indiquer dans les paramétres par défaut :
-        
+            
             * *collectionId* : avec l'id ou le nom logique d'une collection (c'est la collection par défaut du widget),
             * *fetchApp* : le nom d'une application de recherche,
             * *fetchAction* : le nom d'une action de recherche,
@@ -22,23 +22,23 @@ Pour le mettre à disposition et le paramétrer vous devez :
             * *title* : le titre du widget
             
     * pour le paramétrage : 
-    
+        
         * comme application : **DASHBOARD_UI**
         * comme action : **WIDGET_SEARCH_PARAM**
         
         * vous pouvez de plus indiquer dans les paramètres par défaut :
-        
+            
             * *baseCollectionSearch* : un id ou nom logique de collection par défaut dans lequel seront recherchées les collections utilisables comme *collectionId* (par défaut toutes les collections, recherche et répertoire visibles, par l'utilisateur sont affichés),
             * *canModifyCollection* : TRUE ou FALSE si à FALSE la collection par défaut ne pourra pas être modifiée (TRUE par défaut),
             * *canModifySlice* : TRUE ou FALSE si à FALSE le slice par défaut ne pourra pas être modifié.
 
-Si vous voulez créer un widget non paramétrable ne remplissez pas la partie paramétrage, il serait de plus dommage de faire remplir l'action de paramétrage avec les deux canModify à FALSE car cela ferait une IHM avec juste un bouton de validation,
+Si vous voulez créer un widget non paramétrable ne remplissez pas la partie paramétrage, il serait de plus dommage de faire remplir l'action de paramétrage avec les deux canModify à FALSE car cela ferait une IHM avec juste un bouton de validation.
 
 En consultation, vous devez fournir au moins un collectionId ou un fetchApp.
 
 FetchApp et fetchAction permettent de changer l'action par défaut qui est appelée pour compléter le widget.
 
-## Paramétrage avancé du widget
+## Paramétrage avancé du widget {#dashboard-ref:80428cf0-3590-4ecb-900f-0a0233818ac2}
 
 Si vous souhaitez créer votre propre application/action de recherche, vous pouvez vous inspirer de l'action widget_search_content_json dans l'application DASHBOARD_UI, qui a la forme suivante :
 
@@ -70,22 +70,21 @@ Si vous souhaitez créer votre propre application/action de recherche, vous pouv
         
         $action->lay->template = json_encode($return);
         $action->lay->noparse = true;
-
+        
         
         header('Content-type: application/json');
     }
 
 Cette action appelle l'action par défaut pour compléter le widget et retourne le contenu en JSON. Il est à noter que vous pouvez passer en deuxième paramètre à **widget_search_content** un objet **SearchDoc** il sera alors utilisé en lieu et place de la collection définie par collectionId.
 
-## Création d'un nouveau widget
+## Création d'un nouveau widget {#dashboard-ref:c611182a-1845-4bec-8381-506801f8a780}
 
 Pour créer un nouveau type de widget, il faut définir une ou des actions fournissant deux types d'éléments :
 
 * pour la consultation : des assets (js, css) et du HTML à intégrer ,
-
 * pour le paramétrage : une page HTML qui présente et enregistre les paramètres de l'action.
 
-### Exemple simple d'action de consultation :
+### Exemple simple d'action de consultation : {#dashboard-ref:aff254d6-517d-4d3d-bc27-3a34306c12ed}
 
     [php]
     <?php
@@ -122,7 +121,7 @@ Pour créer un nouveau type de widget, il faut définir une ou des actions fourn
         $action->lay->template = json_encode($return);
         $action->lay->noparse = true;
         header('Content-type: application/json');
-
+        
     }
 
 En entrée de l'action de consultation, l'application DASHBOARD_UI envoie les éléments suivants :
@@ -149,7 +148,7 @@ data
     
     assets
     :   les fichiers js et css qui seront intégrés dans la page :
-    
+        
         js
         :   string ou array de string contenant les url des fichiers JS à intégrer, ceux-ci sont intégrés en série.  
             Vous pouvez utiliser la commande $action->parent->getJSLink("<monJS>") pour avoir l'URI tel que dynacase la présente (similaire à celle produite par addJSRef)
@@ -177,7 +176,7 @@ Vous avez à votre disposition une classe permettant de consulter et enregistrer
     /* save the conf */
     $currentConf = $dashboardManager->setWidgetConf($dashboardUUID, $widgetUUID, $conf)
 
-### Exemple simple d'action de paramétrage : 
+### Exemple simple d'action de paramétrage :  {#dashboard-ref:cea30d52-6660-45de-8a61-5875f537a65f}
 
     [php]
     <?php
@@ -202,7 +201,7 @@ Vous avez à votre disposition une classe permettant de consulter et enregistrer
         } else {
             $dashboardManager = new dui\DashboardManager();
             $currentConf = $dashboardManager->getWidgetConf($dashboardUUID, $widgetUUID);
-
+            
             $action->lay->set("message", $currentConf["message"]);
             $action->lay->set("color", $currentConf["color"]);
             $action->lay->set("dashboardUUID", $dashboardUUID);
@@ -222,7 +221,7 @@ widgetUUID
 
 et elle doit en fin de paramétrage renvoyer vers l'action *RELOAD_WIDGET* de l'application *DASHBOARD_UI* avec comme paramètres le *dashboardUUID* et le *widgetUUID* (attention : ceux-ci doivent être fournis sous la forme d'une string url_encodée terminant par un *&*).
 
-### Divers
+### Divers {#dashboard-ref:28b0cede-9a6b-4874-b3d7-0e4c00f266ef}
 
 Recharger un widget : vous pouvez recharger un widget en utilisant l'api du widget et en faisant un appel de ce genre :
 
