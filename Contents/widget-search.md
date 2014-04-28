@@ -226,6 +226,9 @@ et elle doit en fin de paramétrage renvoyer vers l'action *RELOAD_WIDGET* de l'
 Recharger un widget : vous pouvez recharger un widget en utilisant l'api du widget et en faisant un appel de ce genre :
 
     [javascript]
-    $("#elementId").dashboardwidget("refresh", config)
+    $("#elementId").dashboardwidget("reload", config)
 
 L'objet config est optionnel et est un objet javascript contenant les paramètres attendu par l'action de consultation du widget.
+
+Note : Il existe également la méthode `refresh`, mais cette dernière ne prend
+pas de paramètre.
